@@ -1,0 +1,37 @@
+#Data
+datasets/
+data/
+*.csv
+*.xlsx
+*.parquet
+
+#Jupyter
+.ipynb_checkpoints
+/.ipynb_checkpoints/
+
+#Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+#Cache
+pycache/
+*.py[cod]
+*$py.class
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+#PyCharm
+.idea/
+*.iml
+
+
+#System files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
