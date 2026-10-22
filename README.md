@@ -92,10 +92,10 @@ During data validation (Section 4.4), we proved a 100% deterministic parsing hie
 flowchart LR
     A["Raw String: avg_bill<br/>(3,816 non-null)"] -->|Contains 'Средний счёт'| B["Numeric: middle_avg_bill<br/>(3,149 rows, 100% parsed)"]
     A -->|Contains 'Цена одной чашки капучино'| C["Numeric: middle_coffee_cup<br/>(535 rows, 100% parsed)"]
-    A -->|Other item strings<br/>(e.g., glass of beer)| D["Unparsed Item Strings<br/>(132 rows)"]
-    
-    B -->|Quartile Binning via pd.cut<br/>(<300, 300-1000, 1000-1600, >=1600 ₽)| E["Recovered 'price' Tier<br/>(~20% missingness recovered)"]
-    C -.->|63.5% populated in Low-Price tier| F["Coffee Shop ('кофейня') Cluster<br/>(Hypothesis H1 Confirmed)"]
+    A -->|Other item strings, e.g. glass of beer| D["Unparsed Item Strings<br/>(132 rows)"]
+
+    B -->|Quartile binning via pd.cut| E["Recovered price tier<br/>(~20% of missing values recovered)"]
+    C -.->|63.5% populated in low-price tier| F["Coffee Shop ('кофейня') Cluster"]
 ```
 
 ---
@@ -114,6 +114,7 @@ flowchart LR
 ```text
 ├── README.md                                        # English documentation (Current view)
 ├── README.ru.md                                     # Russian documentation
+├── LICENSE                                          # Lisense
 ├── requirements.txt                                 # Python environment dependencies
 ├── notebooks/
 │   └── 01_moscow_catering_market_analysis.ipynb     # Full end-to-end Jupyter Notebook with outputs
@@ -129,5 +130,5 @@ flowchart LR
    cd moscow-catering-market-analysis
    pip install -r requirements.txt
    ```
-2. Place `rest_info.csv` and `rest_price.csv` into a local `datasets/` directory (the notebook automatically resolves `/datasets/` or `datasets/` via `os.path.exists`).
+2. Place `rest_info.csv` and `rest_price.csv` into a local `datasets/` directory.
 3. Run `notebooks/01_moscow_catering_market_analysis.ipynb` top-to-bottom (`Kernel -> Restart & Run All`).

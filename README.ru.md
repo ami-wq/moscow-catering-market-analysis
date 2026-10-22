@@ -94,8 +94,8 @@ flowchart LR
     A -->|Подстрока 'Цена одной чашки капучино'| C["Число: middle_coffee_cup<br/>(535 строк, 100% парсинг)"]
     A -->|Прочие позиции<br/>(напр., цена бокала пива)| D["Нецелевые строки<br/>(132 строки)"]
     
-    B -->|Квантильная разбивка pd.cut<br/>(<300, 300-1000, 1000-1600, >=1600 ₽)| E["Восстановленный 'price'<br/>(~20% пропусков закрыто)"]
-    C -.->|Заполнено у 36.5% в сегменте 'низкие'| F["Кластер 'кофейня'<br/>(Гипотеза H1 подтверждена)"]
+    B -->|Квантильная разбивка pd.cut| E["Восстановленный 'price'<br/>(~20% пропусков закрыто)"]
+    C -.->|Заполнено у 36.5% в сегменте 'низкие'| F["Кластер 'кофейня'"]
 ```
 
 ---
@@ -114,6 +114,7 @@ flowchart LR
 ```text
 ├── README.md                                        # Документация на английском языке
 ├── README.ru.md                                     # Документация на русском языке (текущий файл)
+├── LICENSE                                          # Лицензия
 ├── requirements.txt                                 # Зависимости окружения Python
 ├── notebooks/
 │   └── 01_moscow_catering_market_analysis.ipynb     # Полный Jupyter Notebook с кодом и графиками
@@ -129,5 +130,5 @@ flowchart LR
    cd moscow-catering-market-analysis
    pip install -r requirements.txt
    ```
-2. Поместите локальные копии `rest_info.csv` и `rest_price.csv` в папку `datasets/` в корне проекта (код ноутбука автоматически проверяет пути через `os.path.exists`).
+2. Поместите локальные копии `rest_info.csv` и `rest_price.csv` в папку `datasets/` в корне проекта.
 3. Запустите `notebooks/01_moscow_catering_market_analysis.ipynb` (`Kernel -> Restart & Run All`).
